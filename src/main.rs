@@ -17,7 +17,10 @@ fn main() -> io::Result<()> {
     let mut data = vec![0u8; megabytes * 1024 * 1024];
 
     // Apply a function to manipulate the data (identity function in this case)
-    data = jumbled_words::manipulate_data(seed, data);
+    let rounds = 10u64;
+    for round in 0..rounds {
+        data = jumbled_words::manipulate_data(seed + round, data);
+    }
 
     // Write the data to standard out
     io::stdout().write_all(&data)?;
