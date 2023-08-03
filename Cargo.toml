@@ -2,7 +2,7 @@
 name = "jumbled-words"
 version = "0.1.0"
 edition = "2021"
-authors = "jan wikholm"
+authors = ["jan wikholm <jumbled-words@localhost.exposed>"]
 description = "solution for: create your own PRNG without using known algorithms or other people's work."
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
