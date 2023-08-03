@@ -3,7 +3,6 @@ use std::io::{self, Write};
 use std::env;
 use std::vec::Vec;
 
-
 fn main() -> io::Result<()> {
     let args: Vec<String> = env::args().collect();
     if args.len() != 2 {

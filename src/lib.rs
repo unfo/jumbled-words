@@ -27,6 +27,7 @@ pub fn manipulate_data(seed: u64, mut data: Vec<u8>) -> Vec<u8> {
         let subsec_nanos = since_the_epoch.subsec_nanos();
         let sub = ((subsec_nanos as u64) << 32) | (subsec_nanos as u64);
         let combowombo = (data[i] as u64) + in_seconds * seed - sub;
+        // extract 8 x u8 from one u64
         let bytes: [u8; 8] = [
             ((combowombo >> 56) & 0xFF) as u8,
             ((combowombo >> 48) & 0xFF) as u8,
