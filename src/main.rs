@@ -10,13 +10,14 @@ fn main() -> io::Result<()> {
         eprintln!("Usage: {} <number_of_megabytes>", args[0]);
         std::process::exit(1);
     }
+    let seed = 1u64;
     let megabytes: usize = args[1].parse().expect("Please enter a valid number");
 
     // Create a data structure with the specified number of bytes
     let mut data = vec![0u8; megabytes * 1024 * 1024];
 
     // Apply a function to manipulate the data (identity function in this case)
-    data = jumbled_words::manipulate_data(data);
+    data = jumbled_words::manipulate_data(seed, data);
 
     // Write the data to standard out
     io::stdout().write_all(&data)?;
