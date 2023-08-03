@@ -1,9 +1,16 @@
 use std::vec::Vec;
 use std::time::{SystemTime, UNIX_EPOCH};
 
+pub fn generate_random_data(megabytes: usize, seed: u64) -> Vec<u8> {
+    // Create a data structure with the specified number of bytes
+    let mut data = vec![0u8; megabytes * 1024 * 1024];
 
-pub fn add(left: usize, right: usize) -> usize {
-    left + right
+    // Apply a function to manipulate the data (identity function in this case)
+    let rounds = 1u64;
+    for round in 0..rounds {
+        data = manipulate_data(seed + round, data);
+    }
+    data
 }
 
 pub fn manipulate_data(seed: u64, mut data: Vec<u8>) -> Vec<u8> {
@@ -40,13 +47,3 @@ pub fn manipulate_data(seed: u64, mut data: Vec<u8>) -> Vec<u8> {
     data
 }
 
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
-    }
-}

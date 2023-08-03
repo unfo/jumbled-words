@@ -12,18 +12,11 @@ fn main() -> io::Result<()> {
     }
     let seed = 1u64;
     let megabytes: usize = args[1].parse().expect("Please enter a valid number");
+    let data = jumbled_words::generate_random_data(megabytes, seed);
 
-    // Create a data structure with the specified number of bytes
-    let mut data = vec![0u8; megabytes * 1024 * 1024];
-
-    // Apply a function to manipulate the data (identity function in this case)
-    let rounds = 10u64;
-    for round in 0..rounds {
-        data = jumbled_words::manipulate_data(seed + round, data);
-    }
-
-    // Write the data to standard out
     io::stdout().write_all(&data)?;
 
     Ok(())
 }
+
+
