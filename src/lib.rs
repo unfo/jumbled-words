@@ -13,7 +13,12 @@ pub fn generate_random_data(megabytes: usize, seed: u64) -> Vec<u8> {
     data
 }
 
-pub fn manipulate_data(seed: u64, mut data: Vec<u8>) -> Vec<u8> {
+
+pub fn manipulate_data(seed: u64, data: Vec<u8>) -> Vec<u8> {
+    manipulate_data_timebased(seed, data)
+}
+
+pub fn manipulate_data_timebased(seed: u64, mut data: Vec<u8>) -> Vec<u8> {
     let tot = data.len();
     let mut prev:[u8; 8] = [0,0,0,0, 0,0,0,0];
 
